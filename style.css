@@ -1,0 +1,215 @@
+﻿
+:root {
+  --color-azul:   #005f99;
+  --color-verde:  #28a745;
+  --color-fondo:  #f5f7fa;
+  --color-texto:  #333333;
+  --trans-duracion: 0.4s;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  line-height: 1.5;
+}
+
+
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background var(--trans-duracion);
+}
+.navbar.scrolled {
+  background: var(--color-azul);
+  color: white;
+}
+.navbar .logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--color-azul);
+  transition: color var(--trans-duracion);
+}
+.navbar.scrolled .logo {
+  color: white;
+}
+.navbar a {
+  text-decoration: none;
+  color: inherit;
+  margin-left: 1rem;
+  font-weight: 500;
+}
+
+
+.header {
+  height: 60vh;
+  background: linear-gradient(135deg, var(--color-azul), var(--color-verde));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 1rem;
+}
+.header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--trans-duracion) ease-out,
+              transform var(--trans-duracion) ease-out;
+}
+.header p {
+  font-size: 1.1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--trans-duracion) ease-out var(--trans-duracion/2),
+              transform var(--trans-duracion) ease-out var(--trans-duracion/2);
+}
+.header.show h1,
+.header.show p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 1.5rem;
+  padding: 3rem 2rem;
+}
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: transform var(--trans-duracion), box-shadow var(--trans-duracion);
+}
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+.card .valor {
+  font-size: 2rem;
+  color: var(--color-azul);
+  margin-top: 0.5rem;
+}
+
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--trans-duracion) ease-out,
+              transform var(--trans-duracion) ease-out;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.table-container {
+  padding: 2rem;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+thead {
+  background: var(--color-azul);
+  color: white;
+}
+th, td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ececec;
+}
+tr:hover {
+  background: #f1faff;
+}
+button {
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background var(--trans-duracion);
+}
+.btn-ver     { background: var(--color-verde); color: white; }
+.btn-editar  { background: var(--color-azul);  color: white; }
+.btn-eliminar{ background: #dc3545;             color: white; }
+button:hover { opacity: 0.9; }
+
+
+.form-container {
+    max-width: 480px;
+    margin: 3rem auto; 
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+    .form-container h2 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        color: var(--color-azul);
+    }
+
+    .form-container .campo {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+    }
+
+    .form-container label {
+        font-weight: 600;
+        margin-bottom: 0.3rem;
+        color: var(--color-texto);
+    }
+
+    .form-container input,
+    .form-container select {
+        padding: 0.6rem 0.8rem;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        transition: border-color 0.3s;
+    }
+
+        .form-container input:focus,
+        .form-container select:focus {
+            outline: none;
+            border-color: var(--color-azul);
+        }
+
+    .form-container button {
+        transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+        width: 100%;
+        padding: 0.7rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        background: var(--color-verde);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s, transfor
+       
+            
+    

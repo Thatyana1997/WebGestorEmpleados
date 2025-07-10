@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>WebGestorEmpleados</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">GestorEmpleados</div>
+        <div>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#empleados">Empleados</a>
+            <a href="#reportes">Reportes</a>
+        </div>
+    </nav>
+
+    <section class="header">
+        <div>
+            <h1>Bienvenido al Gestor de Empleados</h1>
+            <p>Administra tu equipo de forma ágil y sencilla.</p>
+        </div>
+    </section>
+
+    <section class="cards">
+        <div class="card fade-in">
+            <h4>Total Empleados</h4>
+            <div class="valor" id="totalEmpleados">–</div>
+        </div>
+        <div class="card fade-in">
+            <h4>Activos Hoy</h4>
+            <div class="valor" id="activosHoy">–</div>
+        </div>
+        <div class="card fade-in">
+            <h4>Reportes Pend.</h4>
+            <div class="valor" id="reportesPend">–</div>
+        </div>
+    </section>
+
+    
+    <section id="nuevoEmpleado" class="form-container fade-in">
+        <h2>Registrar Nuevo Empleado</h2>
+        <form id="formEmpleado">
+            <div class="campo">
+                <label for="primerNombre">Nombre</label>
+                <input type="text" id="primerNombre" name="primerNombre" required>
+            </div>
+            <div class="campo">
+                <label for="primerApellido">Apellido</label>
+                <input type="text" id="primerApellido" name="primerApellido" required>
+            </div>
+            <div class="campo">
+                <label for="correo">Correo</label>
+                <input type="email" id="correo" name="correo" required>
+            </div>
+            <div class="campo">
+                <label for="departamento">Departamento</label>
+                <select id="departamento" name="departamento" required>
+                    <option value="">Cargando...</option>
+                </select>
+            </div>
+            <div class="campo">
+                <label for="puesto">Puesto</label>
+                <input type="text" id="puesto" name="puesto" required>
+            </div>
+            <button type="submit" class="btn-ver">Guardar</button>
+        </form>
+    </section>
+
+    <section id="empleados" class="table-container fade-in">
+        <h2>Lista de Empleados</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Puesto</th>
+                    <th>Departamento</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="empleadosBody">
+               
+            </tbody>
+        </table>
+    </section>
+
+    <script src="main.js" defer></script>
+</body>
+</html>

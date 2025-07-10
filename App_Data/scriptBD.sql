@@ -60,3 +60,6 @@ insert into Empleados(PrimerNombre, PrimerApellido, Correo, Salario, Departament
 (@PrimerNombre, @PrimerApellido, @Correo, @Salario, @DepartamentoId);
 
 end;
+
+insert into Empleados(PrimerNombre, PrimerApellido, Correo, Salario, DepartamentoId) values
+('Tatiana', 'Brenes', 'tbrenesc@castrocarazo.ac.cr', 1000, 1)

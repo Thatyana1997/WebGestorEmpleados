@@ -9,21 +9,21 @@ using WebGestorEmpleados.Models;
 
 namespace WebGestorEmpleados.DAO
 {
-    public class EmpleadosDAO
+    public class EmpleadoDAO
     {
         private readonly string connectionString;
-        public EmpleadosDAO()
+        public EmpleadoDAO()
         {
             connectionString = ConfigurationManager.ConnectionStrings["ConexionBD"].ConnectionString;
         }
 
         public List<Empleados> ObtenerTodosEmpleados()
         {
-            List<Empleados> Empleados = new List<Empleados>();
+            List<Empleados> empleados = new List<Empleados>();
 
             using (SqlConnection conexion = new SqlConnection(connectionString))
             {
-                using (SqlCommand comando = new SqlCommand("sp_ObtenerTodosDepartamentos", conexion))
+                using (SqlCommand comando = new SqlCommand("sp_ObtenerTodosEmpleados", conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
 
@@ -35,12 +35,18 @@ namespace WebGestorEmpleados.DAO
                         {
                             while (lea.Read())
                             {
-                                Empleados departamento = new Empleados
+                                Empleados empleado = new Empleados
                                 {
-                                    DepartamentoId = Convert.ToInt32(lea["DepartamentoId"]),
-                                    Nombre = lea["Nombre"].ToString()
+                                    EmpleadoID = Convert.ToInt32(lea["EmpleadoID"]),
+                                    PrimerNombre = lea["PrimerNombre"].ToString(),
+                                    PrimerApellido = lea["PrimerApellido"].ToString(),
+                                    Correo = lea["Correo"].ToString(),
+                                    Salario = Convert.ToDecimal(lea["Salario"].ToString()),
+                                    FechaIngreso = Convert.ToDateTime(lea["FechaIngreso"].ToString()),
+                                    NombreDepartamento = lea["Nombre"].ToString(),
+
                                 };
-                                Empleados.Add(departamento);
+                                empleados.Add(empleado);
                             }
                         }
                     }
@@ -56,7 +62,7 @@ namespace WebGestorEmpleados.DAO
 
             }
 
-            return Empleados;
+            return empleados;
         }
     }
 }
